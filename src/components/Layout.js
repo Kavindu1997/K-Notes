@@ -2,6 +2,9 @@ import { Drawer, List, ListItem, ListItemIcon, ListItemText, makeStyles, Typogra
 import { AddCircleOutlineOutlined, SubjectOutlined } from '@material-ui/icons'
 import React from 'react'
 import { useHistory, useLocation } from 'react-router'
+import AppBar from '@material-ui/core/AppBar'
+import ToolBar from '@material-ui/core/ToolBar'
+import {format} from 'date-fns'
 
 const drawerWidth=240
 const useStyles=makeStyles((theme)=>{
@@ -25,6 +28,14 @@ const useStyles=makeStyles((theme)=>{
         },
         title:{
             padding:theme.spacing(2)
+        },
+        appbar:{
+            background:'olive',
+            width:`calc(100% - ${drawerWidth}px)`
+        },
+        toolbar: theme.mixins.toolbar,
+        date:{
+            flexGrow:1
         }
     }
  
@@ -49,6 +60,18 @@ export default function Layout({children}){
 
     return(
       <div className={classes.root}>
+          <AppBar
+             className={classes.appbar}
+           >
+              <ToolBar>
+                  <Typography className={classes.date}>
+                        Welcome to the K-Notes, {format(new Date(),'do MMMM Y')}
+                  </Typography>
+                  <Typography>
+                      Kavindu
+                  </Typography>
+              </ToolBar>
+          </AppBar>
           <Drawer
             className={classes.drawer}
             variant="permanent"
@@ -76,6 +99,7 @@ export default function Layout({children}){
 
           </Drawer>
             <div className={classes.page}>
+                <div className={classes.toolbar}></div>
                 {children}
             </div>
       </div>
