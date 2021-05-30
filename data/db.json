@@ -23,6 +23,12 @@
       "details": "18th of June",
       "category": "reminders",
       "id": 4
+    },
+    {
+      "title": "Preliminary Presentation",
+      "details": "2nd week of June\n2021/06/07-2021/06/11",
+      "category": "academic",
+      "id": 5
     }
   ]
 }

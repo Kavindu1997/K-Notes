@@ -4,23 +4,30 @@ import React from 'react'
 import { useHistory, useLocation } from 'react-router'
 
 const drawerWidth=240
-const useStyles=makeStyles({
-    page:{
-        background:'whitesmoke',
-        width:'100%'
-    },
-    drawer:{
-        width:drawerWidth
-    },
-    drawerPaper:{
-        width:drawerWidth
-    },
-    root:{
-        display:'flex'
-    },
-    active:{
-        background:'peachpuff'
+const useStyles=makeStyles((theme)=>{
+    return{
+        page:{
+            background:'whitesmoke',
+            width:'100%',
+            padding:theme.spacing(3)
+        },
+        drawer:{
+            width:drawerWidth
+        },
+        drawerPaper:{
+            width:drawerWidth
+        },
+        root:{
+            display:'flex'
+        },
+        active:{
+            background:'peachpuff'
+        },
+        title:{
+            padding:theme.spacing(2)
+        }
     }
+ 
 })
 export default function Layout({children}){
     const classes=useStyles()
@@ -49,7 +56,7 @@ export default function Layout({children}){
             classes={{paper:classes.drawerPaper}}
           >
               <div>
-                  <Typography variant="h5">
+                  <Typography variant="h5" className={classes.title}>
                        K-Notes
                   </Typography>
               </div>
