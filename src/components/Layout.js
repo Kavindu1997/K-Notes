@@ -5,6 +5,7 @@ import { useHistory, useLocation } from 'react-router'
 import AppBar from '@material-ui/core/AppBar'
 import ToolBar from '@material-ui/core/ToolBar'
 import {format} from 'date-fns'
+import Avatar from '@material-ui/core/Avatar'
 
 const drawerWidth=240
 const useStyles=makeStyles((theme)=>{
@@ -36,6 +37,9 @@ const useStyles=makeStyles((theme)=>{
         toolbar: theme.mixins.toolbar,
         date:{
             flexGrow:1
+        },
+        avatar:{
+            marginLeft:theme.spacing(2)
         }
     }
  
@@ -70,6 +74,7 @@ export default function Layout({children}){
                   <Typography>
                       Kavindu
                   </Typography>
+                  <Avatar src="/avatarlog.png" className={classes.avatar}/>
               </ToolBar>
           </AppBar>
           <Drawer
